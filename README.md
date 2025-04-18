@@ -44,7 +44,7 @@ No functions, custom types, or stored procedures are included.
 ### Microsoft SQL Server
 This docker image uses the same environmental variables defined on the [Microsoft SQL Server docker image](https://hub.docker.com/_/microsoft-mssql-server).
 ```
-docker run -p 1433:1433 -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=My_password1' -d chriseaton/adventureworks:latest
+docker run -p 1433:1433 -e 'ACCEPT_EULA=Y' -e 'MSSQL_SA_PASSWORD=My_password1' -d chriseaton/adventureworks:latest
 ```
 
 > [!TIP]

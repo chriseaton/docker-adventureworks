@@ -7,7 +7,7 @@ See the main [`README.md`](https://github.com/chriseaton/docker-adventureworks) 
 locally in docker.
 
 ## Docker Compose
-To run the docker-compose, use `SA_PASSWORD='My_password1' docker compose up`.
+To run the docker-compose, use `MSSQL_SA_PASSWORD='My_password1' docker compose up`.
 
 > [!TIP]
 > Replace `My_password1` with your own secure password. Note that the password *must* pass minimum complexity requirements
