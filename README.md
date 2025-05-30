@@ -1,6 +1,7 @@
 ![Robot Carrying Boxes](.repo.jpg)
 # Docker AdventureWorks
-Now you can quickly spin up the AdventureWorks sample database in `docker`!
+Now you can quickly spin up the *AdventureWorks* sample database in **docker**!
+
 These databases are built off the available backups provided by Microsoft, and a custom port to *postgres*.
 The docker images utilize the native images provided for Microsoft SQL Server, and Postgres.
 
@@ -15,7 +16,10 @@ You can find samples of a `docker` or `docker-compose.yaml` files in the `sample
 ### Microsoft SQL Server
 This docker image uses the same environmental variables defined on the [Microsoft SQL Server docker image](https://hub.docker.com/_/microsoft-mssql-server).
 ```
-docker run -p 1433:1433 -e 'ACCEPT_EULA=Y' -e 'MSSQL_SA_PASSWORD=My_password1' -d chriseaton/adventureworks:latest
+docker run -p 1433:1433 \
+ -e 'ACCEPT_EULA=Y' \
+ -e 'MSSQL_SA_PASSWORD=My_password1' \
+ -d chriseaton/adventureworks:latest
 ```
 
 > [!TIP]
@@ -25,7 +29,9 @@ or you won't be able to connect!
 ### Postgres
 This docker image uses the same environmental variables defined on the [Postgres docker image](https://hub.docker.com/_/postgres).
 ```
-docker run -p 5432:5432 -e 'POSTGRES_PASSWORD=My_password1' -d chriseaton/adventureworks:postgres
+docker run -p 5432:5432 \
+ -e 'POSTGRES_PASSWORD=My_password1' \
+ -d chriseaton/adventureworks:postgres
 ```
 
 ## Tags
