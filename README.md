@@ -1,4 +1,9 @@
+![Robot Carrying Boxes](.repo.jpg)
 # Docker AdventureWorks
+Now you can quickly spin up the AdventureWorks sample database in `docker`!
+These databases are built off the available backups provided by Microsoft, and a custom port to *postgres*.
+The docker images utilize the native images provided for Microsoft SQL Server, and Postgres.
+
 This project is available on...
 - Docker Hub: [`chriseaton/adventureworks`](https://hub.docker.com/r/chriseaton/adventureworks)
 - GitHub: [`chriseaton/docker-adventureworks`](https://github.com/chriseaton/docker-adventureworks)
@@ -6,7 +11,24 @@ This project is available on...
 To run one of the samples, see §Running below.    
 You can find samples of a `docker` or `docker-compose.yaml` files in the `samples/` directory.
 
-## Tags & Support
+## Quick Start
+### Microsoft SQL Server
+This docker image uses the same environmental variables defined on the [Microsoft SQL Server docker image](https://hub.docker.com/_/microsoft-mssql-server).
+```
+docker run -p 1433:1433 -e 'ACCEPT_EULA=Y' -e 'MSSQL_SA_PASSWORD=My_password1' -d chriseaton/adventureworks:latest
+```
+
+> [!TIP]
+> Replace `My_password1` with your own secure password. Note that the password *must* pass minimum complexity requirements
+or you won't be able to connect!
+
+### Postgres
+This docker image uses the same environmental variables defined on the [Postgres docker image](https://hub.docker.com/_/postgres).
+```
+docker run -p 5432:5432 -e 'POSTGRES_PASSWORD=My_password1' -d chriseaton/adventureworks:postgres
+```
+
+## Tags
 Currently this docker image is available in two supported database engines: Microsoft SQL Server & Postgres
 
 To ensure parity and cross-compatibility, we use a slightly older version of each.
@@ -39,23 +61,6 @@ No functions, custom types, or stored procedures are included.
 |-----|-------------|
 | `postgres` or `postgres-16` | This image adapts the "light" version of the AdventureWorks database to Postgres 16.  |
 | `postgres-13` | This image adapts the "light" version of the AdventureWorks database to Postgres 13.  |
-
-## Running
-### Microsoft SQL Server
-This docker image uses the same environmental variables defined on the [Microsoft SQL Server docker image](https://hub.docker.com/_/microsoft-mssql-server).
-```
-docker run -p 1433:1433 -e 'ACCEPT_EULA=Y' -e 'MSSQL_SA_PASSWORD=My_password1' -d chriseaton/adventureworks:latest
-```
-
-> [!TIP]
-> Replace `My_password1` with your own secure password. Note that the password *must* pass minimum complexity requirements
-or you won't be able to connect!
-
-### Postgres
-This docker image uses the same environmental variables defined on the [Postgres docker image](https://hub.docker.com/_/postgres).
-```
-docker run -p 5432:5432 -e 'POSTGRES_PASSWORD=My_password1' -d chriseaton/adventureworks:postgres
-```
 
 ## Development
 
