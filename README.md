@@ -13,6 +13,13 @@ To run one of the samples, see §Running below.
 You can find samples of a `docker` or `docker-compose.yaml` files in the `samples/` directory.
 
 ## Quick Start
+
+To get started, you just need to fire off your `docker` command which will pull and run the database image. Check out the `samples/` directory for more.
+
+> [!TIP]
+> Replace `My_password1` with your own secure password. Note that the password *must* pass minimum complexity requirements
+or you won't be able to connect!
+
 ### Microsoft SQL Server
 This docker image uses the same environmental variables defined on the [Microsoft SQL Server docker image](https://hub.docker.com/_/microsoft-mssql-server).
 ```
@@ -21,10 +28,6 @@ docker run -p 1433:1433 \
  -e 'MSSQL_SA_PASSWORD=My_password1' \
  -d chriseaton/adventureworks:latest
 ```
-
-> [!TIP]
-> Replace `My_password1` with your own secure password. Note that the password *must* pass minimum complexity requirements
-or you won't be able to connect!
 
 ### Postgres
 This docker image uses the same environmental variables defined on the [Postgres docker image](https://hub.docker.com/_/postgres).
