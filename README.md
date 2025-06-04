@@ -14,14 +14,16 @@ You can find samples of a `docker` or `docker-compose.yaml` files in the `sample
 
 ## Quick Start
 
-To get started, you just need to fire off your `docker` command which will pull and run the database image. Check out the `samples/` directory for more.
+To get started, you just need to fire off one of the `docker` commands below (modify as desired) which will pull and run the database image.
+
+Check out the `samples/` directory for more (such as a `docker compose` file).
 
 > [!TIP]
 > Replace `My_password1` with your own secure password. Note that the password *must* pass minimum complexity requirements
 or you won't be able to connect!
 
 ### Microsoft SQL Server
-This docker image uses the same environmental variables defined on the [Microsoft SQL Server docker image](https://hub.docker.com/_/microsoft-mssql-server).
+This docker image is extended from the official [Microsoft SQL Server docker image](https://hub.docker.com/_/microsoft-mssql-server) image and so you can use the same environmental variables defined on there.
 ```
 docker run -p 1433:1433 \
  -e 'ACCEPT_EULA=Y' \
@@ -30,7 +32,7 @@ docker run -p 1433:1433 \
 ```
 
 ### Postgres
-This docker image uses the same environmental variables defined on the [Postgres docker image](https://hub.docker.com/_/postgres).
+This docker image is extended from the official [Postgres docker image](https://hub.docker.com/_/postgres) image and so you can use the same environmental variables defined on there.
 ```
 docker run -p 5432:5432 \
  -e 'POSTGRES_PASSWORD=My_password1' \
