@@ -13,7 +13,7 @@ Now you can quickly spin up the *AdventureWorks* sample database in **docker**!
 This database is great for testing database features and experimenting in database administration as it comes preloaded with a reasonable (example) enterprise database architecture and records! Samples include fictitious employees, departments, addresses, payroll, contacts, sales, products, and so much more!
 
 These databases are built off the available backups provided by Microsoft, and a custom port to *postgres*.
-The docker images utilize the native images provided for **Microsoft SQL Server**, and **Postgres**.
+The docker images utilize the native images provided for *AdventureWorks* on **Postgres** and **Microsoft SQL Server**.
 
 <p float="left">
 <a href="https://www.microsoft.com/en-us/sql-server"><img src="https://upload.wikimedia.org/wikipedia/de/thumb/8/8c/Microsoft_SQL_Server_Logo.svg/1200px-Microsoft_SQL_Server_Logo.svg.png" alt="SQL Server badge" width="128px" style="display: inline" /></a>
