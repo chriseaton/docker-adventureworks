@@ -23,12 +23,12 @@ else
     echo "AdventureWorks light backup file already downloaded. Skipping.";
 fi
 echo "Building OLTP docker image.";
-docker build . -t chriseaton/adventureworks:latest --build-arg BAK_FILE=./adventureworks.bak;
+docker build --platform linux/386,linux/amd64,linux/arm,linux/arm64 . -t chriseaton/adventureworks:latest --build-arg BAK_FILE=./adventureworks.bak;
 docker tag chriseaton/adventureworks:latest chriseaton/adventureworks:oltp;
 docker tag chriseaton/adventureworks:latest chriseaton/adventureworks:oltp-2022;
 echo "Building data warehouse docker image.";
-docker build . -t chriseaton/adventureworks:datawarehouse --build-arg BAK_FILE=./adventureworks-dw.bak;
+docker build --platform linux/386,linux/amd64,linux/arm,linux/arm64 . -t chriseaton/adventureworks:datawarehouse --build-arg BAK_FILE=./adventureworks-dw.bak;
 docker tag chriseaton/adventureworks:datawarehouse chriseaton/adventureworks:datawarehouse-2022;
 echo "Building light docker image.";
-docker build . -t chriseaton/adventureworks:light --build-arg BAK_FILE=./adventureworks-light.bak;
+docker build --platform linux/386,linux/amd64,linux/arm,linux/arm64 . -t chriseaton/adventureworks:light --build-arg BAK_FILE=./adventureworks-light.bak;
 docker tag chriseaton/adventureworks:light chriseaton/adventureworks:light-2022;

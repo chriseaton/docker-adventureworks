@@ -1,5 +1,13 @@
 ![Robot Carrying Boxes](.repo.jpg)
 # Docker AdventureWorks
+![GitHub License](https://img.shields.io/github/license/chriseaton/docker-adventureworks)
+![Arch:amd64](https://img.shields.io/badge/arch-arm32-purple)
+![Arch:amd64](https://img.shields.io/badge/arch-arm64-purple)
+![Arch:amd64](https://img.shields.io/badge/arch-i386-purple)
+![Arch:amd64](https://img.shields.io/badge/arch-amd64-purple)
+![Database:mssql](https://img.shields.io/badge/database-mssql-blue)
+![Database:postgres](https://img.shields.io/badge/database-postgres-blue)
+
 Now you can quickly spin up the *AdventureWorks* sample database in **docker**!
 
 This database is great for testing database features and experimenting in database administration as it comes preloaded with a reasonable (example) enterprise database architecture and records! Samples include fictitious employees, departments, addresses, payroll, contacts, sales, products, and so much more!
@@ -54,6 +62,9 @@ To ensure parity and cross-compatibility, we use a slightly older version of eac
 - Microsoft SQL 2022 & 2017
 - Postgres 16 & 13
 
+> [!NOTE]
+> ARM/i386 support is currently only available on the Microsoft SQL 2022 and Postgres 16 images and later.    
+
 If you'd like to leverage a specific version, you can clone this repository and modify the `build.sh` scripts in the 
 appropriate folder.
 
@@ -68,6 +79,10 @@ There are three versions tagged for Microsoft SQL Server:
 | `datawarehouse-2017` | This image utilizes the data warehouse version of the AdventureWorks database on Microsoft SQL 2017. |
 | `light` or `light-2022` | This image utilizes the "light" version of the AdventureWorks database on Microsoft SQL 2022. |
 | `light-2017` | This image utilizes the "light" version of the AdventureWorks database on Microsoft SQL 2017. |
+
+> [!NOTE]
+>  The original AdventureWorks database by Microsoft was released under MIT license:
+> https://github.com/microsoft/sql-server-samples/blob/master/license.txt
 
 ### Postgres
 At this time, only the tables and data are fully implemented but should be accurately converted to postgres data types (including geography).
@@ -84,6 +99,22 @@ No functions, custom types, or stored procedures are included.
 
 ### Building
 Run the `build.sh` script to download the AdventureWorks [backup file from Microsoft](https://docs.microsoft.com/en-us/sql/samples/adventureworks-install-configure), and to build and tag the docker image.
+
+For multi-architecture build support see the [docker documentation here](https://docs.docker.com/build/building/multi-platform/#cross-compilation).
+
+In a nutshell on your linux machine, run:
+```sh
+docker run --privileged --rm tonistiigi/binfmt --install all
+```
+...and in your `/etc/docker/daemon.json` configuration file, add:
+```
+{
+    "features": {
+        "containerd-snapshotter": true
+    }
+}
+```
+...once these things are done you should be able to run a multi-platform build, like [in this example](https://docs.docker.com/build/building/multi-platform/#simple-multi-platform-build-using-emulation).
 
 ### Publishing
 If you are a maintainer, you can publish the image to docker hub [chriseaton/adventureworks](https://hub.docker.com/repository/docker/chriseaton/adventureworks).
