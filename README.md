@@ -63,7 +63,7 @@ To ensure parity and cross-compatibility, we use a slightly older version of eac
 - Postgres 16 & 13
 
 > [!NOTE]
-> ARM/i386 support is currently only available on the Microsoft SQL 2022 and Postgres 16 images and later.    
+> ARM/i386 support is currently only available on the Postgres 16 images and later.    
 
 If you'd like to leverage a specific version, you can clone this repository and modify the `build.sh` scripts in the 
 appropriate folder.
